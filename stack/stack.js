@@ -5,8 +5,8 @@ class Stack {
   * @summary Time complexity: O(1)
   */
   constructor() {
-    this.count = 0;
-    this.items = {};
+    this._count = 0;
+    this._items = {};
   }
 
   /** 
@@ -15,8 +15,8 @@ class Stack {
   * @param {any} element - The element to be added to the stack.
   */
   push(element) {
-    this.items[this.count] = element;
-    this.count++;
+    this._items[this._count] = element;
+    this._count++;
   }
 
   /** 
@@ -25,7 +25,7 @@ class Stack {
   * @return {number} The number of elements in the stack.
   */
   size() {
-    return this.count;
+    return this._count;
   }
 
   /** 
@@ -34,7 +34,7 @@ class Stack {
   * @return {boolean} True if the stack does not contain any elements, and false if the size of the stack is bigger than 0.
   */
   isEmpty() {
-    return this.count === 0;
+    return this._count === 0;
   }
 
   /** 
@@ -46,9 +46,9 @@ class Stack {
     if (this.isEmpty()) {
       return undefined;
     }
-    this.count--;
-    const element = this.items[this.count];
-    delete this.items[this.count];
+    this._count--;
+    const element = this._items[this._count];
+    delete this._items[this._count];
     return element;
   }
 
@@ -61,7 +61,7 @@ class Stack {
     if (this.isEmpty()) {
       return undefined;
     }
-    return this.items[this.count-1];
+    return this._items[this._count-1];
   }
 
   /** 
@@ -69,8 +69,8 @@ class Stack {
   * @summary Time complexity: O(1)
   */
   clear() {
-    this.count = 0;
-    this.items = {};
+    this._count = 0;
+    this._items = {};
   }
 
   /** 
@@ -82,9 +82,9 @@ class Stack {
     if (this.isEmpty()) {
       return '';
     }
-    let str = `${ this.items[0] }`;
-    for (let index = 1; index < this.count; index++) {
-      str = `${str}, ${this.items[index]}`;
+    let str = `${ this._items[0] }`;
+    for (let index = 1; index < this._count; index++) {
+      str = `${str}, ${this._items[index]}`;
     }
     return str;
   }
