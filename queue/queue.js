@@ -1,4 +1,4 @@
-class Queue {
+export default class Queue {
   /** 
   * Creates a new instance of Queue.
   * @summary Time complexity: O(1)
