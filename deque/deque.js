@@ -1,4 +1,4 @@
-class Deque {
+export default class Deque {
 
   /** 
   * Creates a new instance of Deque.
