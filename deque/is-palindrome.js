@@ -1,5 +1,11 @@
 import Deque from './deque.js';
 
+/** 
+* Checks if a string is a palindrome.
+* @summary Time complexity: O(n) - where n is the length of the string.
+* @param {string} str - The string to be checked.
+* @return {boolean} True if the string is a palindrome, false otherwise.
+*/
 const isPalindrome = (str) => {
   if (str === undefined || str === null || ( str !== null && str.lenght === 0)) {
     return false;
