@@ -49,4 +49,69 @@ export default class LinkedList {
     return current.element;
   }
 
-}
+  insert(element, index) {
+    if (index < 0 || index >= this.count) {
+      return false;
+    }
+    const node = new Node(element);
+    if (index === 0) {
+      const current = this.head;
+      node.next = current;
+      this.head = node;
+    } else {
+      const previous = this.getElementAt(index-1);
+      const current = previous.next;
+      node.next = current;
+      previous.next = node;
+    }
+    this.count++;
+    return true;
+  }
+
+  indexOf(element) {
+    if (this.equalsFn(this.head.element, element)) {
+      return 0;
+    }
+    let current = this.head.next;
+    let counter = 1;
+    while (current.next !== undefined) {
+      if (this.equalsFn(current.element, element)) {
+        return counter;
+      }
+      current = current.next;
+      counter++;
+    }
+    return -1;
+  }
+
+  remove(element) {
+    const index = this.indexOf(element);
+    return this.removeAt(index);
+  }
+
+  size() {
+    return this.count;
+  }
+
+  isEmpty() {
+    return this.size() === 0;
+  }
+
+  getHead() {
+    return this.head;
+  }
+
+  toString() {
+    if (this.head === undefined) {
+      return '';
+    }
+    let str = `${this.head.element}`;
+    let current = this.head.next;
+    for (let index = 1; index < this.size() && current !== undefined; index++) {
+      str = `${str}, ${current.element}`;
+      current = current.next;
+    }
+    return str;
+  }
+ 
+} 
