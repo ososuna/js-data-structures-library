@@ -69,7 +69,7 @@ export default class LinkedList {
     for (let i = 0; i < index && current != null; i++) {
       current = current.next;  
     }
-    return current.element;
+    return current;
   }
 
   /** 
@@ -80,7 +80,7 @@ export default class LinkedList {
   * @return {boolean} True if the element was inserted, false otherwise.
   */
   insert(element, index) {
-    if (index < 0 || index >= this.count) {
+    if (index < 0 || index > this.count ) {
       return false;
     }
     const node = new Node(element);
