@@ -40,4 +40,31 @@ export default class DoublyLinkedList extends LinkedList {
     this.count++;
     return true;
   }
+
+  removeAt(index) {
+    if (index < 0 || index >= this.count ) {
+      return undefined;
+    }
+    let current = this.head;
+    if (index === 0) {
+      this.head = current.next;
+      // if there's only one item, then we update tail as well
+      if (this.count === 1) {
+        this.tail = undefined;
+      } else {
+        this.head.prev = undefined;
+      }
+    } else if (index === this.count - 1) { // last item
+      current = this.tail;
+      this.tail = current.prev;
+      this.tail.next = undefined;
+    } else {
+      current = this.getElementAt(index);
+      const previous = current.prev;
+      previous.next = current.next;
+      current.next.prev = previous;
+    }
+    this.count--;
+    return current.element;
+  }
 }
