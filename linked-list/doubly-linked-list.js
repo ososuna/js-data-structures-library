@@ -24,7 +24,7 @@ export default class DoublyLinkedList extends LinkedList {
         current.prev = node;
         this.head = node;
       }
-    } else if (index === this.count) { // last item NEW
+    } else if (index === this.count) { // last item
       current = this.tail;
       current.next = node;
       node.prev = current;
