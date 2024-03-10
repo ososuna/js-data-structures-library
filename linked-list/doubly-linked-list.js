@@ -3,12 +3,23 @@ import { defaultEquals } from '../util/index.js';
 import { DoublyNode } from './node.js';
 
 export default class DoublyLinkedList extends LinkedList {
-  
+
+  /** 
+  * Creates a new instance of DoublyLinkedList.
+  * @summary Time complexity: O(1)
+  */
   constructor(equalsFn = defaultEquals) {
     super(equalsFn);
     this.tail = undefined;
   }
 
+  /** 
+  * Inserts a new element at a specified position in the list.
+  * @summary Time complexity: O(n) - In the worst case, we need to iterate through the entire list to find the element.
+  * @param {any} element - The value to be added to the list.
+  * @param {number} index - The position of the element to be added.
+  * @return {boolean} True if the element was added, false otherwise.
+  */
   insert(element, index) {
     if (index < 0 || index > this.count ) {
       return false;
@@ -41,6 +52,12 @@ export default class DoublyLinkedList extends LinkedList {
     return true;
   }
 
+  /** 
+  * Removes an item from a specified position in the list.
+  * @summary Time complexity: O(n) - In the worst case, we need to iterate through the entire list to remove the element.
+  * @param {number} index - The position of the element to be removed.
+  * @return {any | undefined} The removed element if it was removed, undefined otherwise.
+  */
   removeAt(index) {
     if (index < 0 || index >= this.count ) {
       return undefined;
