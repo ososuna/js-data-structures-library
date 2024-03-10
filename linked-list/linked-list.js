@@ -5,6 +5,7 @@ export default class LinkedList {
 
   /** 
   * Creates a new instance of LinkedList.
+  * @param {function} equalsFn - Optional function to compare equality between elements.
   * @summary Time complexity: O(1)
   */
   constructor(equalsFn = defaultEquals) {

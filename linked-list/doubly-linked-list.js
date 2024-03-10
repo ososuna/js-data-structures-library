@@ -6,6 +6,7 @@ export default class DoublyLinkedList extends LinkedList {
 
   /** 
   * Creates a new instance of DoublyLinkedList.
+  * @param {function} equalsFn - Optional function to compare equality between elements.
   * @summary Time complexity: O(1)
   */
   constructor(equalsFn = defaultEquals) {
