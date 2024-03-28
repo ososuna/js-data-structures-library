@@ -70,4 +70,29 @@ export default class Set {
   values() {
     return Object.values(this.items);
   }
+
+  union(otherSet) {
+    const unionSet = new Set();
+    this.values().forEach(value => unionSet.add(value));
+    otherSet.values().forEach(value => unionSet.add(value));
+    return unionSet;
+  }
+
+  intersection(otherSet) {
+    const intersectionSet = new Set();
+    let smallerSet = this;
+    let biggerSet = otherSet;
+
+    if (smallerSet.size() - biggerSet.size() > 0) {
+      smallerSet = otherSet;
+      biggerSet = this;
+    }
+
+    smallerSet.values().forEach(value => {
+      if (biggerSet.has(value)) {
+        intersectionSet.add(value);
+      }
+    });
+    return intersectionSet;
+  }
 }
