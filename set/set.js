@@ -71,6 +71,12 @@ export default class Set {
     return Object.values(this.items);
   }
 
+  /** 
+  * Returns the union of the set with another set.
+  * @summary Time complexity: O(n)
+  * @param {Set} otherSet - The other set to be combined with this set.
+  * @return {Set} A new set containing all elements in this set and the other set.
+  */
   union(otherSet) {
     const unionSet = new Set();
     this.values().forEach(value => unionSet.add(value));
@@ -78,6 +84,12 @@ export default class Set {
     return unionSet;
   }
 
+  /** 
+  * Returns the intersection of the set with another set.
+  * @summary Time complexity: O(n)
+  * @param {Set} otherSet - The other set to be intersected with this set.
+  * @return {Set} A new set containing all elements that are in both this set and the other set.
+  */
   intersection(otherSet) {
     const intersectionSet = new Set();
     const setValues = this.values();
@@ -96,6 +108,12 @@ export default class Set {
     return intersectionSet;
   }
 
+  /** 
+  * Returns the difference of the set with another set.
+  * @summary Time complexity: O(n)
+  * @param {Set} otherSet - The other set to be compared with this set.
+  * @return {Set} A new set containing all elements that are in this set but not in the other set.
+  */
   difference(otherSet) {
     const differenceSet = new Set();
     this.values().forEach(value => {
@@ -106,6 +124,12 @@ export default class Set {
     return differenceSet;
   }
 
+  /** 
+  * Returns true if the set is a subset of another set, and false otherwise.
+  * @summary Time complexity: O(n)
+  * @param {Set} otherSet - The other set to be compared with this set.
+  * @return {boolean} True if the set is a subset of the other set, and false otherwise. 
+  */
   isSubsetOf(otherSet) {
     if (this.size() > otherSet.size()) {
       return false;
@@ -120,5 +144,4 @@ export default class Set {
     });
     return isSubset;
   }
-
 }
