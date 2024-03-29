@@ -80,19 +80,20 @@ export default class Set {
 
   intersection(otherSet) {
     const intersectionSet = new Set();
-    let smallerSet = this;
-    let biggerSet = otherSet;
-
-    if (smallerSet.size() - biggerSet.size() > 0) {
-      smallerSet = otherSet;
-      biggerSet = this;
+    const setValues = this.values();
+    const otherSetValues = otherSet.values();
+    let smallerValues = setValues;
+    let biggerValues = otherSetValues;
+    if (setValues - otherSetValues > 0) {
+      smallerValues = otherSetValues;
+      biggerValues = setValues;
     }
-
-    smallerSet.values().forEach(value => {
-      if (biggerSet.has(value)) {
+    smallerValues.forEach(value => {
+      if (biggerValues.includes(value)) {
         intersectionSet.add(value);
       }
     });
     return intersectionSet;
   }
+
 }
