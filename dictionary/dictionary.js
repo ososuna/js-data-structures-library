@@ -1,5 +1,5 @@
 import { defaultToString }  from '../util';
-import ValuePair from './value-pair';
+import ValuePair from './value-pair.js';
 
 export default class Dictionary {
   constructor(toStrFn = defaultToString) {
