@@ -8,6 +8,12 @@ export const defaultEquals = (a, b) => {
   return a === b;
 };
 
+/** 
+* Default to string function. It converts any value to a string.
+* @summary Time complexity: O(1)
+* @param {any} item - The value to be converted to a string.
+* @return {string} A string representation of the value.
+*/
 export const defaultToString = (item) => {
   if (item === null) {
     return 'NULL';
