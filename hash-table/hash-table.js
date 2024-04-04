@@ -45,5 +45,17 @@ export default class HashTable {
     }
     return false;
   }
+
+  toString() {
+    if (this.isEmpty()) {
+      return '';
+    }
+    const keys = Object.keys(this.table);
+    let objString = `{${keys[0]} =>> ${this.table[keys[0].toString()]}}`;
+    for (let i = 1; i < objString.length; i++) {
+      objString = `${objString}, {${keys[i]} =>> ${this.table[keys[i].toString()]}}`; 
+    }
+    return objString;
+  }
    
 }
